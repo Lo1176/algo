@@ -37,23 +37,23 @@ function findLongestWordLength(str) {
 function largestOfFour(arr) {
   let arrResult = [];
   for (let i = 0; i < arr.length; i++) {
-    let biggestNumber = arr[i][0];
-    for (let j = 0; j < arr.length; j++) {
-      biggestNumber = arr[i][j] > biggestNumber ? arr[i][j] : biggestNumber;
-    }
-    arrResult.push(biggestNumber);
+    // let biggestNumber = arr[i][0];
+    // for (let j = 0; j < arr.length; j++) {
+    //   biggestNumber = arr[i][j] > biggestNumber ? arr[i][j] : biggestNumber;
+    // }
+    arrResult.push(arr[i].sort((a, b) => b - a)[0]);
   }
   return arrResult;
 }
 
-// console.log(
-//   largestOfFour([
-//     [17, 23, 25, 12],
-//     [25, 7, 34, 48],
-//     [4, -10, 18, 21],
-//     [-72, -3, -17, -10],
-//   ])
-// );
+console.log(
+  largestOfFour([
+    [17, 23, 25, 12],
+    [25, 7, 34, 48],
+    [4, -10, 18, 21],
+    [-72, -3, -17, -10],
+  ])
+);
 
 function confirmEnding(str, target) {
   const endLength = target.length;
@@ -61,4 +61,15 @@ function confirmEnding(str, target) {
   return lastLetters === target && true;
 }
 
-console.log(confirmEnding('Bastian', 'tian'));
+// console.log(confirmEnding('Bastian', 'tian'));
+
+function repeatStringNumTimes(str, num) {
+  // let result = '';
+  // for (let i = 1; i <= num; i++) {
+  //   result += str;
+  // }
+  // return result;
+  return num > 0 ? str.repeat(num) : '';
+}
+
+console.log(repeatStringNumTimes('abc', 3));
