@@ -46,14 +46,14 @@ function largestOfFour(arr) {
   return arrResult;
 }
 
-console.log(
-  largestOfFour([
-    [17, 23, 25, 12],
-    [25, 7, 34, 48],
-    [4, -10, 18, 21],
-    [-72, -3, -17, -10],
-  ])
-);
+// console.log(
+//   largestOfFour([
+//     [17, 23, 25, 12],
+//     [25, 7, 34, 48],
+//     [4, -10, 18, 21],
+//     [-72, -3, -17, -10],
+//   ])
+// );
 
 function confirmEnding(str, target) {
   const endLength = target.length;
@@ -64,12 +64,37 @@ function confirmEnding(str, target) {
 // console.log(confirmEnding('Bastian', 'tian'));
 
 function repeatStringNumTimes(str, num) {
-  // let result = '';
-  // for (let i = 1; i <= num; i++) {
-  //   result += str;
-  // }
-  // return result;
-  return num > 0 ? str.repeat(num) : '';
+  let result = '';
+  for (let i = 1; i <= num; i++) {
+    result += str;
+  }
+  return result;
+  // for this exercice, the built-in repeat() method should not be used.
+
+  // return num > 0 ? str.repeat(num) : '';
 }
 
-console.log(repeatStringNumTimes('abc', 3));
+// console.log(repeatStringNumTimes('abc', 3));
+
+/**
+ * Truncate a String
+Truncate a string (first argument) if it is longer than the given maximum string length (second argument). 
+Return the truncated string with a ... ending.
+ */
+function truncateString(str, num) {
+  /**
+   * can use slice or substring for this case
+   * substring vs slice are the same except:
+   * if start > stop, substring swaps the arguments, slice returns ""
+   * if argument is NaN or negative, substring will treat it as a 0
+   * if start is negative, slice sets char from the end of string
+   * if stop is negative, slice sets stop to string.length – Math.abs(stop)
+   */
+  if (str.length > num) {
+    return str.substring(0, num).concat('...');
+  } else {
+    return str;
+  }
+}
+
+console.log(truncateString('A-tisket a-tasket A green and yellow basket', 8));
