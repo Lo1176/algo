@@ -123,6 +123,21 @@ function booWho(bool) {
   return typeof bool === 'boolean';
 }
 
-console.log(booWho(false));
-console.log(booWho('toto'));
-console.log(true && false);
+// console.log(booWho(false));
+// console.log(booWho('toto'));
+// console.log(true && false);
+
+/**
+ * Return the provided string with the first letter of each word capitalized.
+ * Make sure the rest of the word is in lower case.
+ * For the purpose of this exercise, you should also capitalize connecting words like the and of.
+ */
+function titleCase(str) {
+  const arr = str
+    .toLowerCase()
+    .split(/[,. \s]/)
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1));
+  return arr.join(' ');
+}
+
+console.log(titleCase("I'm a little tea pot"));
