@@ -197,7 +197,7 @@ function getIndexToIns(arr, num) {
   }
   return arr.length;
 }
-console.log(getIndexToIns([40, 60], 61));
+// console.log(getIndexToIns([40, 60], 61));
 
 function getIndexToIns2(arr, num) {
   arr.sort((a, b) => a - b);
@@ -212,6 +212,27 @@ function getIndexToIns2(arr, num) {
   return index;
 }
 
-console.log(getIndexToIns2([40, 60], 61));
-console.log(getIndexToIns2([1, 2, 3, 4], 1.5)); // Output: 1
-console.log(getIndexToIns2([20, 3, 5], 19)); // Output: 2
+// console.log(getIndexToIns2([40, 60], 61));
+// console.log(getIndexToIns2([1, 2, 3, 4], 1.5)); // Output: 1
+// console.log(getIndexToIns2([20, 3, 5], 19)); // Output: 2
+
+/** 
+ * Mutations
+Return true if the string in the first element of the array contains all of the letters of the string in the second element of the array.
+For example, ["hello", "Hello"], should return true because all of the letters in the second string are present in the first, ignoring case.
+The arguments ["hello", "hey"] should return false because the string hello does not contain a y.
+Lastly, ["Alien", "line"], should return true because all of the letters in line are present in Alien.
+ */
+
+function mutation(arr) {
+  const firstString = arr[0].toLowerCase();
+  const secondString = arr[1].toLowerCase();
+  for (let i = 0; i < secondString.length; i++) {
+    console.log(firstString.indexOf(secondString[i]));
+    if (firstString.indexOf(secondString[i]) === -1) return false;
+  }
+  return true;
+}
+
+console.log(mutation(['hello', 'helli']));
+// mutation(['hello', 'hey']);
